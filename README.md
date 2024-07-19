@@ -55,7 +55,7 @@ In particular, we will interact with these two APIs from Open-Meteo:
 ## Initial setup
 
 
-@todo (fork, clonse, npm install, npm run dev)
+@todo (fork, clone, npm install, npm run dev, open in browser)
 
 
 
@@ -107,7 +107,9 @@ In particular, we will interact with these two APIs from Open-Meteo:
 @todo
 
 - Explain the initial code  (vite, html, css, types.ts, utils.ts)
+- Explain that axios is already installed and has built-in types
 - Explain how we organize our TS code (types.ts, utils.ts, main.ts)
+- Can explain that the functionality currently doesn't work (ie. when the user submits, nothing happens)
 
 <!-- @todo -->
 

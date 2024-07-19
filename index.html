@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+
+  <!-- CCS -->
+  <link rel="stylesheet" href="/src/style.css">
+
+</head>
+
+<body>
+
+  <div class="card">
+
+    <h1>Weather App</h1>
+
+    <!-- form -->
+    <form id="weather-form">
+      <input type="text" id="location" placeholder="type your location..." required minlength="2" />
+      <button>Get weather</button>
+    </form>
+
+    <!-- location info (will be generated dynamically) -->
+    <div id="location-container">
+      <h2 id="location-name"></h2>
+      <h3 id="country"></h3>
+    </div>
+
+    <!-- weather info (will be generated dynamically) -->
+    <div id="weather-container">
+      <p id="temperature"></p>
+      <p id="windspeed"></p>
+      <p id="winddirection"></p>
+      <p id="is_day"></p>
+      <p id="weathercode"></p>
+    </div>
+
+  </div>
+
+  <!-- JS -->
+  <script type="module" src="/src/main.ts"></script>
+
+</body>
+
+</html>

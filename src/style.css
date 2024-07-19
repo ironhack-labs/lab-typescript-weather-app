@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  color: #000;
+  background-color: #fff6ec;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: background-image 1s ease; 
+}
+
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.6em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+p {
+  margin: 0.5em auto;
+  padding: 0;
+}
+
+input, button {
+  font-size: 1em;
+}
+
+.card {
+  width: 60%;
+  height: auto;
+  margin: 2em auto;
+  padding: 0.5em 0 1em;
+  border-radius: 1em;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+#location-container {
+  margin-top: 2em;
+}
+
+#location-container h2,
+#location-container h3 {
+  padding: 0 auto;
+  margin: 0 auto;
+}
+
+
+/********************/
+/* Body Backgrounds */
+/********************/
+
+body{
+  background-image: url('/images/background/default.jpg');
+}
+body[data-weather='sunny']{
+  background-image: url('/images/background/1-sunny.jpg');
+}
+body[data-weather='sunny-night']{
+  background-image: url('/images/background/1-sunny-night.jpg');
+}
+body[data-weather='partly-cloudy']{
+  background-image: url('/images/background/2-partly-cloudy.jpg');
+}
+body[data-weather='partly-cloudy-night']{
+  background-image: url('/images/background/2-partly-cloudy-night.jpg');
+}
+body[data-weather='cloudy']{
+  background-image: url('/images/background/3-cloudy.jpg');
+}
+body[data-weather='foggy']{
+  background-image: url('/images/background/4-foggy.jpg');
+}
+body[data-weather='drizzle']{
+  background-image: url('/images/background/5-drizzle.jpg');
+}
+body[data-weather='rain']{
+  background-image: url('/images/background/6-rain.jpg');
+}
+body[data-weather='snow']{
+  background-image: url('/images/background/7-snow.jpg');
+}
+body[data-weather='showers']{
+  background-image: url('/images/background/8-showers.jpg');
+}
+body[data-weather='thunderstorm']{
+  background-image: url('/images/background/9-thunderstorm.jpg');
+}
+

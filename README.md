@@ -29,10 +29,7 @@
 
 In this lab, you will create a weather app that allows the user to type the name of a location and get the current weather for that specific location. 
 
-For this application, we will use some APIs from [Open-Meteo](https://open-meteo.com/) and the axios library for HTTP requests.
-
-
-In particular, we will interact with these two APIs from Open-Meteo:
+For this application, we will use some APIs from [Open-Meteo](https://open-meteo.com/) and the axios library for HTTP requests. In particular, we will interact with these two APIs from Open-Meteo:
 
 
 **Geocoding API**: 
@@ -54,33 +51,16 @@ In particular, we will interact with these two APIs from Open-Meteo:
 
 ## Initial setup
 
+To begin, follow these steps:
+- Fork this repo
+- Clone this repo
+- Open the project folder in VSCode
 
-@todo (fork, clone, npm install, npm run dev, open in browser)
+Then, run the following commands in your terminal:
+- `npm install` (this will install all the dependencies)
+- `npm run dev`
 
-
-
-<!-- @todo (see lab-ts-i) -->
-
-
-<!-- 
-
-- fork, clone, open code
-
-- npm install
-
-- run with: npm run dev
-- http://localhost:5173/
-
-
-- explain vite (config provided + tsconfig.json)
-
-- explain project structure
-    - types.ts
-    - utils.ts
-    - main.ts
-
--->
-
+Finally, open the url [http://localhost:5173](http://localhost:5173). You will see a page with a form (the functionality for the form is not working yet, that's what we will implement during this lab).
 
 <br>
 
@@ -104,23 +84,25 @@ In particular, we will interact with these two APIs from Open-Meteo:
 
 ## Iteration 0 | Understanding the initial code
 
-@todo
+The initial code provided for this lab is a Vite application with TypeScript already configured.
 
-- Explain the initial code  (vite, html, css, types.ts, utils.ts)
-- Explain that axios is already installed and has built-in types
-- Explain how we organize our TS code (types.ts, utils.ts, main.ts)
-- Can explain that the functionality currently doesn't work (ie. when the user submits, nothing happens)
+To help you get started quickly, we have created the initial structure and added some initial code. For example, you'll find these html and css files:
+- `index.html`: this is the html file that will be rendered in the browser. If you open it, you will see that we've added the html code for the form and some containers that we will use to display the info about the location and weather.
+- `src/style.css`: we have also included some css, so that you can focus on the functionality.
 
-<!-- @todo -->
+Our TypeScript code, will be organized in 3 different files:
+- `src/types.ts`: this is the file where we'll include all TypeScript type definitions.
+- `src/utils.ts`: in this file we will create different utility functions (reusable functions that perform a specific task and can be used in other parts of our application).
+- `src/main.ts`: in this file, we will add the main logic of our application.
 
+If you open `src/types.ts`, you will see that we have already added 2 type definitions: 
+- `Location`: a type alias that defines the structure of a location.
+- `LocationResponse`: a type alias that defines the structure of the response that we get from the API when we send a request to get the details of a specific location.
 
-<!-- 
-utils.js
-
-> Utility functions are generally small, reusable functions that perform a specific, well-defined task and are designed to be used across different parts of an application. 
- -->
-
-
+If you open `src/utils.ts`, you will find the following:
+- We are importing `axios` (which is already installed as a dependency)
+- We also import some type definitions.
+- And, we have already created a function `getLocation()`. This function takes the name of a location as an argument and will send a request to the API to get the details of that location. It returns a promise that resolves to the type `LocationResponse`
 
 <br>
 

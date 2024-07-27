@@ -128,7 +128,8 @@ To get an example of a response, you can send a GET request to this URL: [https:
 
   To see the response in a human-friendly format, you can use Postman:
 
-  ![image](https://github.com/user-attachments/assets/966886a3-b497-4ad7-8879-300b1a2897bd)
+  ![Postman](https://github.com/user-attachments/assets/36bf9d5b-d6ae-4034-95fe-ba6594198805)
+
 
   Once you can see the response in human-friendly format, it will be much easier to create the type alias.
 
@@ -141,7 +142,8 @@ To get an example of a response, you can send a GET request to this URL: [https:
 
   Another option, when you have to create a type alias for complex data is to use ChatGPT or a similar AI tool to generate the type alias for you:
 
-  ![image](https://github.com/user-attachments/assets/b62ed3b7-74eb-4aff-9fd5-78a51e2fc52f)
+  ![ChatGPT](https://github.com/user-attachments/assets/24a7613e-bbc7-4e11-a8ba-595d246cf43e)
+
 
   Note: there's some cases in which ChatGPT will not be able to give you the right answer. For example, if there's optional properties and they're not included in the example provided, or when some properties can have different types (i.e., union types).
 

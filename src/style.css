@@ -65,37 +65,37 @@ input, button {
 body{
   background-image: url('/images/background/default.jpg');
 }
-body[data-weather='sunny']{
+body.sunny {
   background-image: url('/images/background/1-sunny.jpg');
 }
-body[data-weather='sunny-night']{
+body.sunny-night {
   background-image: url('/images/background/1-sunny-night.jpg');
 }
-body[data-weather='partly-cloudy']{
+body.partly-cloudy {
   background-image: url('/images/background/2-partly-cloudy.jpg');
 }
-body[data-weather='partly-cloudy-night']{
+body.partly-cloudy-night {
   background-image: url('/images/background/2-partly-cloudy-night.jpg');
 }
-body[data-weather='cloudy']{
+body.cloudy {
   background-image: url('/images/background/3-cloudy.jpg');
 }
-body[data-weather='foggy']{
+body.foggy {
   background-image: url('/images/background/4-foggy.jpg');
 }
-body[data-weather='drizzle']{
+body.drizzle {
   background-image: url('/images/background/5-drizzle.jpg');
 }
-body[data-weather='rain']{
+body.rain {
   background-image: url('/images/background/6-rain.jpg');
 }
-body[data-weather='snow']{
+body.snow {
   background-image: url('/images/background/7-snow.jpg');
 }
-body[data-weather='showers']{
+body.showers {
   background-image: url('/images/background/8-showers.jpg');
 }
-body[data-weather='thunderstorm']{
+body.thunderstorm {
   background-image: url('/images/background/9-thunderstorm.jpg');
 }
 

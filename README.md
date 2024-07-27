@@ -26,24 +26,21 @@
 
 <!-- @todo: add gif showing how the app will look like -->
 
-
-In this lab, you will create a weather app that allows the user to type the name of a location and get the current weather for that specific location. 
+In this lab, you will create a weather app that allows the user to type the name of a location and get the current weather for that location.
 
 For this application, we will use some APIs from [Open-Meteo](https://open-meteo.com/) and the axios library for HTTP requests. In particular, we will interact with these two APIs from Open-Meteo:
 
 
-**Geocoding API**: 
+**Geocoding API** ([docs](https://open-meteo.com/en/docs/geocoding-api)): 
 - This API will allow us to search for a specific location by name.
-- For example, if we send a GET request to the URL [https://geocoding-api.open-meteo.com/v1/search?name=Berlin&count=3](https://geocoding-api.open-meteo.com/v1/search?name=Berlin&count=3), we would get a list of 3 locations that match the name "Berlin".
-- It will return a list of locations matching that name and some information for each location (country, latitude, longitude, etc.)
-- More info [here](https://open-meteo.com/en/docs/geocoding-api).
+- For example, we can get a list of 3 locations that match the name "Berlin" by sending a GET request to this URL: [https://geocoding-api.open-meteo.com/v1/search?name=Berlin&count=3](https://geocoding-api.open-meteo.com/v1/search?name=Berlin&count=3).
+- It will return a list of locations matching that name and some information for each location (country, latitude, longitude, etc.).
 
 
-**Weather Forecast API**: 
-- This API will allow us to get the current weather at a specific location, defined by the coordinates of that location (latitude and longitude)
+**Weather Forecast API** ([docs](https://open-meteo.com/en/docs)): 
+- This API will allow us to get the current weather for a specific location, using the location's coordinates (latitude and longitude).
 - For example, if we want to get the current weather in Berlin, Germany (latitude 52.52437; longitude 13.41053), we would send a GET request to this URL: [https://api.open-meteo.com/v1/forecast?latitude=52.52437&longitude=13.41053&current_weather=true&models=icon_global](https://api.open-meteo.com/v1/forecast?latitude=52.52437&longitude=13.41053&current_weather=true&models=icon_global)
-- It will return info about the current weather for that specific location (temperature, wind speed, wind direction, etc.)
-- More info [here](https://open-meteo.com/en/docs).
+- It will return info about the current weather for that specific location (temperature, wind speed, wind direction, etc.).
 
 <br>
 
@@ -56,11 +53,11 @@ To begin, follow these steps:
 - Clone this repo
 - Open the project folder in VSCode
 
-Then, run the following commands in your terminal:
+Then, run these commands in your terminal:
 - `npm install` (this will install all the dependencies)
 - `npm run dev`
 
-Finally, open the url [http://localhost:5173](http://localhost:5173). You will see a page with a form (the functionality for the form is not working yet, that's what we will implement during this lab).
+Finally, open the URL [http://localhost:5173](http://localhost:5173) in your browser. You should see a page with a form (the functionality for the form is not working yet, that's what we will implement during this lab :wink:).
 
 <br>
 
@@ -86,22 +83,30 @@ Finally, open the url [http://localhost:5173](http://localhost:5173). You will s
 
 The initial code provided for this lab is a Vite application with TypeScript already configured.
 
-To help you get started quickly, we have created the initial structure and added some initial code. For example, you'll find these html and css files:
-- `index.html`: this is the html file that will be rendered in the browser. If you open it, you will see that we've added the html code for the form and some containers that we will use to display the info about the location and weather.
-- `src/style.css`: we have also included some css, so that you can focus on the functionality.
+<br>
 
-Our TypeScript code, will be organized in 3 different files:
+To help you get started quickly, we have created the initial structure and added some initial code. For example, you'll find these HTML and CSS files:
+- `index.html`: this is the HTML file that will be rendered in the browser. If you open it, you will see that we've added the HTML code for the form and some containers that we will use to display the info about the location and weather.
+- `src/style.css`: we have also included some CSS, so that you can focus on the functionality.
+
+<br>
+
+Our TypeScript code will be organized in 3 different files:
 - `src/types.ts`: this is the file where we'll include all TypeScript type definitions.
-- `src/utils.ts`: in this file we will create different utility functions (reusable functions that perform a specific task and can be used in other parts of our application).
+- `src/utils.ts`: in this file we will create several utility functions (reusable functions that perform a specific task and can be used in other parts of our application).
 - `src/main.ts`: in this file, we will add the main logic of our application.
 
+<br>
+
 If you open `src/types.ts`, you will see that we have already added 2 type definitions: 
-- `Location`: a type alias that defines the structure of a location.
+- `Location`: a type alias that defines the structure of an object with information about a given location.
 - `LocationResponse`: a type alias that defines the structure of the response that we get from the API when we send a request to get the details of a specific location.
 
-If you open `src/utils.ts`, you will find the following:
+<br>
+
+If you open `src/utils.ts`, you will find this initial code:
 - We are importing `axios` (which is already installed as a dependency)
-- We also import some type definitions.
+- We also import some type definitions from `src/types.ts`.
 - And, we have already created a function `getLocation()`. This function takes the name of a location as an argument and will send a request to the API to get the details of that location. It returns a promise that resolves to the type `LocationResponse`
 
 <br>
@@ -113,9 +118,9 @@ If you open `src/utils.ts`, you will find the following:
 
 In `src/types.ts`, create a new type alias with the name `WeatherResponse`. This type alias should describe the structure that we get from the API when we send a request to get the weather for a specific location.
 
-To get an example of a response, you can send a GET request to this URL: [https://api.open-meteo.com/v1/forecast?latitude=52.52437&longitude=13.41053&current_weather=true&models=icon_global](https://api.open-meteo.com/v1/forecast?latitude=52.52437&longitude=13.41053&current_weather=true&models=icon_global). Then, create a type alias that follows that pattern and export it, so that it can be used from other files.
+To get an example of a response, you can send a GET request to this URL: [https://api.open-meteo.com/v1/forecast?latitude=52.52437&longitude=13.41053&current_weather=true&models=icon_global](https://api.open-meteo.com/v1/forecast?latitude=52.52437&longitude=13.41053&current_weather=true&models=icon_global). Then, create a type alias that follows that pattern and export it so that it can be used in other files.
 
-
+<br>
 
 <details>
   <summary><b>Tip 1</b></summary>
@@ -181,7 +186,7 @@ To get an example of a response, you can send a GET request to this URL: [https:
   };
   ```
 
-  Note: don't forget to export it, so that you can use this type definition from other files.
+  Note: don't forget to export it, so that you can use this type definition in other files.
 
 </details>
 
@@ -191,9 +196,9 @@ To get an example of a response, you can send a GET request to this URL: [https:
 
 ### 1.2 - Create the signature for the function `getCurrentWeather()`
 
-In this step, you will create the signature for the function `getCurrentWeather()`. This function will send a request to the Weather Forecast API and return the response from the API.
+In this step, you will create the signature for the function `getCurrentWeather()`. This function will send a request to the Weather Forecast API and return the API response.
 
-For now, define only the **signature of our function** (ie. we will declare the function, specifying which parameters it takes and what it returns but we will not implement the logic of the function).
+For now, we will just define the **signature of our function** (ie. we will declare the function, specifying which parameters it takes and what it returns but we will not implement the logic of the function).
 
 Open the file `src/utils.ts` and declare a function with this signature:
 
@@ -205,6 +210,7 @@ Open the file `src/utils.ts` and declare a function with this signature:
   - Example: `Promise<WeatherResponse>`
 - Note: for now, don't worry about the code inside the function for now (we will do that in the next step)
 
+<br>
 
 <details>
   <summary><b>Solution</b></summary>
@@ -238,8 +244,9 @@ Next, you will implement the logic of the function `getCurrentWeather()`. Your f
 
 2. Handle the Response: 
   - Return a promise that resolves with the data from the API response.
-  - Note: you can use the .then() method to extract the data property from the response object.
+  - Note: you can use the `.then()` method to extract the data property from the response object.
 
+<br>
 
 <details>
   <summary><b>Solution</b></summary>
@@ -276,6 +283,11 @@ In `src/utils.ts`, create a function with this signature:
 - Return value: 
   - For this function, we're not interested in the return value.
 
+
+Also, make sure to export your function so that it can be used in other files.
+
+<br>
+
 <details>
   <summary><b>Solution</b></summary>
 
@@ -305,6 +317,8 @@ Next, implement the logic for the function `displayLocation()`. This function sh
 
 1. In the HTML element with the id `location-name`, you should display the name of the location.
 2. In the HTML element with the id `country`, you should display the country.
+
+<br>
 
 <details>
   <summary><b>Hint</b></summary>
@@ -356,6 +370,7 @@ In `src/utils.ts`, create a function with this signature:
 - Return value: 
   - For this function, we're not interested in the return value.
 
+<br>
 
 <details>
   <summary><b>Solution</b></summary>
@@ -388,6 +403,7 @@ Next, implement the logic for the function `displayWeatherData()`. This function
 2. In the HTML element with the id `windspeed`, you should display the wind speed (e.g. `3.4 km/h`).
 3. In the HTML element with the id `winddirection`, you should display the wind direction (e.g. `32 °`).
 
+<br>
 
 <details>
   <summary><b>Solution</b></summary>
@@ -439,6 +455,7 @@ In `src/main.ts`, create the code to do the following:
 
 Once you have completed these steps, when the user submits the form, you should see a message "The user has submitted the form" in the console.
 
+<br>
 
 <details>
   <summary><b>Solution</b></summary>
@@ -461,6 +478,7 @@ Once you have completed these steps, when the user submits the form, you should 
 
 Next, modify the event listener you created in the previous step so that, when the user submits, you display in the console the name of the location that they have entered (example: "The user has submitted the form and is searching for a location with this name... [Berlin]").
 
+<br>
 
 <details>
   <summary><b>Solution</b></summary>
@@ -490,6 +508,8 @@ Next, modify the event listener you created in the previous step so that, when t
 ### 4.3 - Display weather when the user submits the form
 
 Now, you will need to put all the pieces together! Modify the code in `src/main.ts` so that, when the user submits the form, we display info about the location and the current weather.
+
+<br>
 
 <details>
   <summary><b>Hints</b></summary>
@@ -563,26 +583,254 @@ Now, you will need to put all the pieces together! Modify the code in `src/main.
 
 ## Bonus: Iteration 5 | Update background
 
-@todo
+In this iteration, we will improve the user experience by adding a background image that reflects the weather in each location (for example, if you search for the weather in Berlin and it's cloudy, we will display a background image with clouds).
+
+So that you can focus on the functionality, we have already included all the images you will need (in the directory `/public/images/background`) and some CSS rules (in `src/style.css`).
+
+<br>
 
 
-<!--
+### 5.1 - Create the signature for the function `updateBackground()` 
 
-Change the background image for the whole page, based on weathercode:
-- 0, 1: sunny  (day/night)
-- 2: partly cloudy  (day/night)
-- 3: cloudy
-- 45, 48: Foggy
-- 5x: drizzle
-- 6x: rain
-- 7x: snow
-- 8x: showers
-- 9x: thunderstorm
+In this step, we will define a function that will receive some details about the weather and, based on those details, it will do some DOM manipulation so that those CSS rules are applied.
 
-- src/utils.ts
-- src/main.ts 
 
--->
+In `src/utils.ts`, create a function with this signature:
+
+- Name of the function: `updateBackground()`
+- Parameters:
+    - `weatherCode` (a number)
+    - `isDay` (also a number)
+- Return value: 
+  - For this function, we're not interested in the return value.
+
+<br>
+
+<details>
+  <summary><b>Solution</b></summary>
+
+  ```ts
+  export function updateBackground(weatherCode: number, isDay: number) {
+    // ...
+  }
+  ```
+
+  Note: you can also explicitly state that we're not interested in the return value using `void`:
+
+  ```ts
+  export function updateBackground(weatherCode: number, isDay: number): void {
+    // ...
+  }
+  ```
+
+</details>
+
+
+<br>
+
+
+
+### 5.2 - Implement the function `updateBackground()` 
+
+At the end of the file `src/style.css`, we have included some CSS rules that modify the background based on the class of the `<body>` tag (for example, if the `<body>` tag has the class `sunny`, a sunny background will be applied).
+
+Implement the logic for the function `updateBackground()` so that it changes the class of the `body` tag based on `weatherCode` and `isDay`, following the table below:
+
+<table>
+    <thead>
+        <tr>
+            <th>First character of <code>weatherCode</code></th>
+            <th><code>isDay</code></th>
+            <th>Class name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=2>0 or 1</td>
+            <td>0</td>
+            <td><code>sunny-night</code></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><code>sunny</code></td>
+        </tr>
+        <tr>
+            <td rowspan=2>2</td>
+            <td>0</td>
+            <td><code>partly-cloudy-night</code></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td><code>partly-cloudy</code></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>any value</td>
+            <td><code>cloudy</code></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>any value</td>
+            <td><code>foggy</code></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>any value</td>
+            <td><code>drizzle</code></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>any value</td>
+            <td><code>rain</code></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>any value</td>
+            <td><code>snow</code></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>any value</td>
+            <td><code>showers</code></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>any value</td>
+            <td><code>thunderstorm</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+
+For example:
+- If the first character of `weatherCode` is `0` and `isDay` is also `0`, your function should change the class of the HTML `body` tag to `sunny-night`.
+- If the first character of `weatherCode` is `3`, your function should change the class of the HTML `body` tag to `cloudy`.
+
+<br>
+
+<details>
+  <summary><b>Hint</b></summary>
+
+  You can change the class using the property `className`. For example:
+
+  ```ts
+  document.body.className = "sunny-night";
+  ```
+
+</details>
+
+
+<details>
+  <summary><b>Solution</b></summary>
+
+  ```ts
+
+    export function updateBackground(weatherCode: number, isDay: number) {
+
+        const firstCharacter = weatherCode.toString().charAt(0);
+
+        switch(firstCharacter){
+            case "0":
+            case "1":
+                if(isDay === 0){
+                    document.body.className = "sunny-night";
+                } else {
+                    document.body.className = "sunny";
+                }
+                break;
+            case "2":
+                if(isDay === 0){
+                    document.body.className = "partly-cloudy-night";
+                } else {
+                    document.body.className = "partly-cloudy";
+                }
+                break;
+            case "3":
+                document.body.className = "cloudy";
+                break;
+            case "4":
+                document.body.className = "foggy";
+                break;
+            case "5":
+                document.body.className = "drizzle";
+                break;
+            case "6":
+                document.body.className = "rain";
+                break;
+            case "7":
+                document.body.className = "snow";
+                break;
+            case "8":
+                document.body.className = "showers";
+                break;
+            case "9":
+                document.body.className = "thunderstorm";
+                break;
+            default:
+                document.body.className = "";
+                break;
+        }
+    }
+
+  ```
+</details>
+
+
+
+<br>
+
+
+### 5.3 - Invoke the function `updateBackground()`
+
+Finally, you will need to update the file `src/main.ts` and invoke the function `updateBackground()` once you have the details about the weather.
+
+<br>
+
+<details>
+  <summary><b>Hint</b></summary>
+
+  You can invoke `updateBackground()`, right after invoking `displayWeatherData()` (in `src/main.ts`).
+
+  When you invoke `updateBackground()`, make sure to pass the expected arguments.
+
+</details>
+
+
+
+<details>
+  <summary><b>Solution</b></summary>
+
+  ```ts
+  // src/main.ts
+
+  // ...
+
+  form.addEventListener('submit', (event) => {
+    // ...
+
+    getLocation(locationName)
+      .then((response) => {
+        // ...
+      })
+      .then((weatherData) => {
+
+        // Display info about the weather
+        displayWeatherData(weatherData);
+
+        // Update background
+        updateBackground(weatherData.current_weather.weathercode, weatherData.current_weather.is_day);
+        
+      })
+      .catch((error) => {
+        // ...
+      });
+
+  });
+
+  ```
+
+</details>
 
 
 <br><br>
@@ -595,9 +843,7 @@ Happy coding! :heart:
 
 ## Acknowledgments
 
-This project uses weather data from Open-Meteo, licensed under the Creative Commons Attribution 4.0 International License ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
-
-<!-- @todo: Images: pixabay -->
+This project uses weather data from Open-Meteo, licensed under the Creative Commons Attribution 4.0 International License ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)), and images from [Pixabay](https://pixabay.com/).
 
 <br>
 
@@ -691,17 +937,5 @@ This project uses weather data from Open-Meteo, licensed under the Creative Comm
   [Back to top](#faqs)
 
 </details>
-
-
-<!-- 
-
-@todo:
-
-
-Other FAQs:
-- problems running the app / vite running on a different port
-
--->
-
 
 

@@ -24,7 +24,8 @@
 
 ## Introduction
 
-<!-- @todo: add gif showing how the app will look like -->
+![screen-1](https://github.com/user-attachments/assets/8cefa23d-f64b-46d2-bde7-a9e86348b2a2)
+
 
 In this lab, you will create a weather app that allows the user to type the name of a location and get the current weather for that location.
 

@@ -1,7 +1,6 @@
 // src/utils.ts
 
 import axios from 'axios';
-
 import { LocationResponse, Location } from "./types";
 
 

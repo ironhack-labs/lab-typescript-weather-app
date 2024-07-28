@@ -54,7 +54,7 @@ To begin, follow these steps:
 - Clone this repo
 - Open the project folder in VSCode
 
-Then, run these commands in your terminal:
+Then, run the following commands in your terminal :point_down::point_down:
 - `npm install` (this will install all the dependencies)
 - `npm run dev`
 
@@ -222,7 +222,7 @@ Open the file `src/utils.ts` and declare a function with this signature:
   ```ts
   // src/utils.ts
 
-  import { LocationResponse, Location, WeatherResponse } from "./types";
+  import { LocationResponse, Location, WeatherResponse } from "./types.ts";
 
   // ...
 
@@ -257,7 +257,7 @@ Next, you will implement the logic of the function `getCurrentWeather()`. Your f
   ```ts
   // src/utils.ts
 
-  import { LocationResponse, Location, WeatherResponse } from "./types";
+  import { LocationResponse, Location, WeatherResponse } from "./types.ts";
 
   // ...
 
@@ -295,6 +295,9 @@ Also, make sure to export your function so that it can be used in other files.
   <summary><b>Solution</b></summary>
 
   ```ts
+  // src/utils.ts
+  // ...
+
   export function displayLocation(locationDetails: Location) {
       // ...
   }
@@ -303,6 +306,9 @@ Also, make sure to export your function so that it can be used in other files.
   Note: you can also explicitly state that we're not interested in the return value using `void`:
 
   ```ts
+  // src/utils.ts
+  // ...
+
   export function displayLocation(locationDetails: Location): void {
       // ...
   }
@@ -343,6 +349,9 @@ Next, implement the logic for the function `displayLocation()`. This function sh
   <summary><b>Solution</b></summary>
 
   ```ts
+  // src/utils.ts
+  // ...
+
   export function displayLocation(locationDetails: Location) {
       // display location name
       const locationNameElm = document.getElementById('location-name') as HTMLElement;
@@ -379,6 +388,9 @@ In `src/utils.ts`, create a function with this signature:
   <summary><b>Solution</b></summary>
 
   ```ts
+  // src/utils.ts
+  // ...
+
   export function displayWeatherData(obj: WeatherResponse) {
     // ...
   }
@@ -387,6 +399,9 @@ In `src/utils.ts`, create a function with this signature:
   Note: you can also explicitly state that we're not interested in the return value using `void`:
 
   ```ts
+  // src/utils.ts
+  // ...
+
   export function displayWeatherData(obj: WeatherResponse): void {
     // ...
   }
@@ -412,6 +427,9 @@ Next, implement the logic for the function `displayWeatherData()`. This function
   <summary><b>Solution</b></summary>
 
   ```ts
+  // src/utils.ts
+  // ...
+
   export function displayWeatherData(obj: WeatherResponse) {
       // display temperature  
       const temperatureElm = document.getElementById('temperature') as HTMLElement;
@@ -534,7 +552,7 @@ Now, you will need to put all the pieces together! Modify the code in `src/main.
   ```ts
   // src/main.ts
 
-  import { getLocation, getCurrentWeather, displayLocation, displayWeatherData } from './utils';
+  import { getLocation, getCurrentWeather, displayLocation, displayWeatherData } from './utils.ts';
 
   const form = document.getElementById("weather-form") as HTMLFormElement;
 
@@ -586,7 +604,7 @@ Now, you will need to put all the pieces together! Modify the code in `src/main.
 
 ## Bonus: Iteration 5 | Update background
 
-In this iteration, we will improve the user experience by adding a background image that reflects the weather in each location (for example, if you search for the weather in Berlin and it's cloudy, we will display a background image with clouds).
+Congratulations, if you've reach this point, the main functionality will be working! In this iteration, we will improve the user experience by adding a background image that reflects the weather in each location (for example, if you search for the weather in Berlin and it's cloudy, we will display a background image with clouds).
 
 So that you can focus on the functionality, we have already included all the images you will need (in the directory `/public/images/background`) and some CSS rules (in `src/style.css`).
 
@@ -613,6 +631,9 @@ In `src/utils.ts`, create a function with this signature:
   <summary><b>Solution</b></summary>
 
   ```ts
+  // src/utils.ts
+  // ...
+
   export function updateBackground(weatherCode: number, isDay: number) {
     // ...
   }
@@ -621,6 +642,9 @@ In `src/utils.ts`, create a function with this signature:
   Note: you can also explicitly state that we're not interested in the return value using `void`:
 
   ```ts
+  // src/utils.ts
+  // ...
+
   export function updateBackground(weatherCode: number, isDay: number): void {
     // ...
   }
@@ -728,6 +752,8 @@ For example:
   <summary><b>Solution</b></summary>
 
   ```ts
+    // src/utils.ts
+    // ...
 
     export function updateBackground(weatherCode: number, isDay: number) {
 
@@ -804,6 +830,17 @@ Finally, you will need to update the file `src/main.ts` and invoke the function 
 <details>
   <summary><b>Solution</b></summary>
 
+  First, make sure to import the function `updateBackground()` in `src/main.ts`:
+
+  ```ts
+  // src/main.ts
+
+  import { getLocation, getCurrentWeather, displayLocation, displayWeatherData, updateBackground } from './utils';
+
+  ```
+
+  Then, modify the code to invoke it once we have the details about the weather:
+
   ```ts
   // src/main.ts
 
@@ -822,7 +859,7 @@ Finally, you will need to update the file `src/main.ts` and invoke the function 
         displayWeatherData(weatherData);
 
         // Update background
-        updateBackground(weatherData.current_weather.weathercode, weatherData.current_weather.is_day);
+        updateBackground(weatherData.current_weather.weathercode, weatherData.current_weather.is_day);  // <== ADD THIS
         
       })
       .catch((error) => {
@@ -875,6 +912,59 @@ This project uses weather data from Open-Meteo, licensed under the Creative Comm
 
 
 <details>
+  <summary>How do I run the app?</summary>
+
+
+  <br>
+
+  Check the section "Initial setup".
+
+  <br>
+
+  [Back to top](#faqs)
+
+</details>
+
+
+<details>
+  <summary>When I run the app, I get an error "vite: not found"</summary>
+
+
+  <br>
+
+  Make sure to install all the dependencies running this command in your terminal:
+
+  ```shell
+  npm install
+  ```
+
+  <br>
+
+  [Back to top](#faqs)
+
+</details>
+
+
+<details>
+  <summary>How can I run the app on a different port?</summary>
+
+
+  <br>
+
+  By default, Vite will run on the port `5173`. If you need to run the app on a different port, you can use this command:
+
+  ```shell
+  npm run dev -- --port=3001
+  ```
+
+  <br>
+
+  [Back to top](#faqs)
+
+</details>
+
+
+<details>
   <summary>Do I need to add type annotations to everything?</summary>
 
 
@@ -894,6 +984,45 @@ This project uses weather data from Open-Meteo, licensed under the Creative Comm
   }
   ```
 
+
+  <br>
+
+  [Back to top](#faqs)
+
+</details>
+
+
+<details>
+  <summary>I get an error "Cannot find name 'abc'"</summary>
+
+
+  <br>
+
+  If you get an error "Cannot find name 'abc'" (for example, `Cannot find name 'WeatherResponse'`), it can be because your code is not exported/imported correctly.
+
+  Make sure to export your type definitions and functions, so that they can be used in other files. For example:
+
+  ```ts
+  // src/types.ts
+
+  // ...
+
+  export type WeatherResponse = {
+    // ...
+  }
+  
+  ```
+
+  Also, when you use a type definition or a function from another file, make sure to import it. For example: 
+
+  ```ts
+  // src/utils.ts
+
+  // ...
+
+  import { LocationResponse, Location, WeatherResponse } from "./types.ts";
+  
+  ```
 
   <br>
 

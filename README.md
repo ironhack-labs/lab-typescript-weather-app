@@ -604,7 +604,7 @@ Now, you will need to put all the pieces together! Modify the code in `src/main.
 
 ## Bonus: Iteration 5 | Update background
 
-Congratulations, if you've reach this point, the main functionality will be working! In this iteration, we will improve the user experience by adding a background image that reflects the weather in each location (for example, if you search for the weather in Berlin and it's cloudy, we will display a background image with clouds).
+Congratulations, if you've reached this point, the main functionality will be working! In this iteration, we will improve the user experience by adding a background image that reflects the weather in each location (for example, if you search for the weather in Berlin and it's cloudy, we will display a background image with clouds).
 
 So that you can focus on the functionality, we have already included all the images you will need (in the directory `/public/images/background`) and some CSS rules (in `src/style.css`).
 

@@ -24,7 +24,10 @@
 
 ## Introduction
 
-![screen-1](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m4/lab-typescript-weather-app-screen-1.gif)
+
+<img src="./public/images/demo/demo-1.gif?raw=true" width="800px">
+<br>
+
 
 In this lab, you will create a weather app that allows the user to type the name of a location and get the current weather for that location.
 
@@ -605,7 +608,17 @@ Now, you will need to put all the pieces together! Modify the code in `src/main.
 
 Congratulations, if you've reached this point, the main functionality will be working! In this iteration, we will improve the user experience by adding a background image that reflects the weather in each location (for example, if you search for the weather in Berlin and it's cloudy, we will display a background image with clouds).
 
-![screen-2](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/m4/lab-typescript-weather-app-screen-2.gif)
+
+<details>
+  <summary>
+    <h2>See Expected Result</h2>
+  </summary>
+
+  <img src="./public/images/demo/demo-2.gif?raw=true" width="800px">
+
+</details>
+
+<br>
 
 So that you can focus on the functionality, we have already included all the images you will need (in the directory `/public/images/background`) and some CSS rules (in `src/style.css`).
 

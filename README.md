@@ -610,9 +610,7 @@ Congratulations, if you've reached this point, the main functionality will be wo
 
 
 <details>
-  <summary>
-    <h2>See Expected Result</h2>
-  </summary>
+  <summary><b>See Expected Result<b></summary>
 
   <img src="./public/images/demo/demo-2.gif?raw=true" width="800px">
 

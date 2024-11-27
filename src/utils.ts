@@ -45,3 +45,42 @@ export function displayWeatherData(obj: WeatherResponse) {
     const winddirectionUnits = obj.current_weather_units.winddirection;
     winddirectionElement.innerText = `Wind Direction: ${winddirection} ${winddirectionUnits}`;
 }
+
+export function updateBackground(weatherCode: number, isDay: number) {
+
+    weatherCode = Number(weatherCode.toString().charAt(0));
+
+    document.body.className = getWeatherType();
+
+    function getWeatherType() {
+        switch (weatherCode) {
+            case 0:
+            case 1:
+                if (isDay === 0) {
+                    return "sunny-night";
+                }
+                return "sunny";
+            case 2:
+                if (isDay === 0) {
+                    return "partly-cloudy-night";
+                }
+                return "partly-cloudy";
+            case 3:
+                return "cloudy";
+            case 4:
+                return "foggy";
+            case 5:
+                return "drizzle";
+            case 6:
+                return "rain";
+            case 7:
+                return "snow";
+            case 8:
+                return "showers";
+            case 9:
+                return "thunderstorm";
+            default:
+                return "";
+        }
+    }
+}

@@ -1,6 +1,6 @@
 // src/main.ts
 
-import { displayLocation, displayWeatherData, getCurrentWeather, getLocation } from "./utils";
+import { displayLocation, displayWeatherData, getCurrentWeather, getLocation, updateBackground } from "./utils";
 
 // src/main.ts
 
@@ -23,6 +23,7 @@ weatherForm.addEventListener("submit", (e) => {
         })
         .then((weatherData) => {
             displayWeatherData(weatherData);
+            updateBackground(weatherData.current_weather.weathercode, weatherData.current_weather.is_day);
         })
         .catch((error) => {
             console.log(error);

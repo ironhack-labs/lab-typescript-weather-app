@@ -213,7 +213,7 @@ Open the file `src/utils.ts` and declare a function with this signature:
 - Return value: 
   - Our function should return a `Promise` that resolves to the type `WeatherResponse`
   - Example: `Promise<WeatherResponse>`
-- Note: for now, don't worry about the code inside the function for now (we will do that in the next step)
+- Note: for now, don't worry about the code inside the function (we will do that in the next step)
 
 <br>
 

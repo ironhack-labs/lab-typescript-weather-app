@@ -24,7 +24,6 @@ export function displayLocation (locationDetails: Location): void {
   countryElm.innerText = `(${locationDetails.country})`
 }
 export function displayWeatherData (obj: WeatherResponse): void {
-  // Display temperature
   const temperatureElm = document.getElementById('temperature') as HTMLElement
   const temperature = obj.current_weather.temperature
   const temperatureUnits = obj.current_weather_units.temperature
@@ -32,7 +31,6 @@ export function displayWeatherData (obj: WeatherResponse): void {
     temperatureElm.innerText = `Temperature: ${temperature} ${temperatureUnits}`
   }
 
-  // Display wind speed
   const windspeedElm = document.getElementById('windspeed') as HTMLElement
   const windspeed = obj.current_weather.windspeed
   const windspeedUnits = obj.current_weather_units.windspeed
@@ -40,7 +38,6 @@ export function displayWeatherData (obj: WeatherResponse): void {
     windspeedElm.innerText = `Wind Speed: ${windspeed} ${windspeedUnits}`
   }
 
-  // Display wind direction
   const winddirectionElm = document.getElementById(
     'winddirection'
   ) as HTMLElement
@@ -50,14 +47,12 @@ export function displayWeatherData (obj: WeatherResponse): void {
     winddirectionElm.innerText = `Wind Direction: ${winddirection} ${winddirectionUnits}`
   }
 
-  // Display is_day
   const isDayElm = document.getElementById('is_day') as HTMLElement
   const isDay = obj.current_weather.is_day === 1 ? 'Day' : 'Night'
   if (isDayElm) {
     isDayElm.innerText = `Day/Night: ${isDay}`
   }
 
-  // Display weather code
   const weatherCodeElm = document.getElementById('weathercode') as HTMLElement
   const weatherCode = obj.current_weather.weathercode
   if (weatherCodeElm) {
@@ -97,7 +92,7 @@ export function updateBackground (weatherCode: number, isDay: number): void {
     case '9':
       document.body.className = 'thunderstorm'
       break
-    default: // Reset background if no match
+    default:
       document.body.className = ''
       break
   }

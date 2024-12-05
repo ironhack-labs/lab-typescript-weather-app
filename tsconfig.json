@@ -1,24 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES2020",  // Still targeting ES2020 for modern features
     "useDefineForClassFields": true,
-    "module": "ESNext",
+    "module": "ESNext",   // Using ES Modules instead of CommonJS
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    "moduleResolution": "bundler",  // Ensures correct module resolution for bundlers
+    "allowImportingTsExtensions": true,  // Allows imports of `.ts` extensions
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "moduleDetection": "force",  // Ensures that all files are treated as modules
+    "noEmit": true,  // Prevents emitting of compiled JS files
+    "strict": true,   // Enables strict type-checking for TypeScript
+    "noUnusedLocals": true,  // Disallows unused local variables
+    "noUnusedParameters": true,  // Disallows unused parameters in functions
+    "noFallthroughCasesInSwitch": true  // Ensures all switch cases are handled
   },
   "include": ["src"]
 }

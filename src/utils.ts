@@ -41,6 +41,64 @@ export function displayWeatherData(obj:WeatherResponse):void{
     winddirection.innerText = `${obj.current_weather.winddirection} ${obj.current_weather_units.winddirection}`
 }
 
+export function updateBackground(weatherCode:number,isDay:number):void{
+    const bodyClass = document.body
+    const firstCharacter = weatherCode.toString().charAt(0);
+    switch (firstCharacter){
+        case "0":
+        case "1":{
+            if(isDay===0)
+                bodyClass.className = "sunny-night"
+            else{
+                bodyClass.className = "sunny"
+            }
+            break;
+        }
+        case "2":{
+            if(isDay===0)
+                bodyClass.className = "partly-cloudy-night"
+            else{
+                bodyClass.className = "partly-cloudy"
+            }
+            break;
+        }
+        case "3":{
+            bodyClass.className = "cloudy"
+            break;
+
+        }
+        case "4":{
+            bodyClass.className = "foggy"
+            break;
+
+        }
+        case "5":{
+            bodyClass.className = "drizzle"
+            break;
+
+        }
+        case "6":{
+            bodyClass.className = "rain"
+            break;
+
+        }
+        case "7":{
+            bodyClass.className = "snow"
+            break;
+
+        } 
+        case "8":{
+            bodyClass.className = "showers"
+            break;
+
+        } 
+        case "9":{
+            bodyClass.className = "thunderstorm"
+            ;
+        }
+       
+    }
+}
 
 
 

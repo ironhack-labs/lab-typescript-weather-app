@@ -1,5 +1,5 @@
 // src/main.ts
-import {  displayLocation, getLocation, getCurrentWeather, displayWeatherData } from "./utils";
+import {  displayLocation, getLocation, getCurrentWeather, displayWeatherData, updateBackground } from "./utils";
 const submit = document.getElementById("weather-form") as HTMLElement;
 
 submit.addEventListener("submit",async (e)=>{
@@ -13,7 +13,7 @@ submit.addEventListener("submit",async (e)=>{
              const currWeather =  await getCurrentWeather(getLocationResponse.results[0])
              if(currWeather){
                 displayWeatherData(currWeather)
-
+                updateBackground(currWeather.current_weather.weathercode, currWeather.current_weather.is_day)
              }
         }
        

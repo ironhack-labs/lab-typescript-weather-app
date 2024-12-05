@@ -31,6 +31,16 @@ export function displayLocation(locationDetails:Location):void{
     country.innerText = locationDetails.country;
 
 }
+export function displayWeatherData(obj:WeatherResponse):void{
+    const temperature = document.getElementById("temperature") as HTMLElement;
+    const windspeed = document.getElementById("windspeed") as HTMLElement;
+    const winddirection = document.getElementById("winddirection") as HTMLElement;
+
+    temperature.innerText =`${ obj.current_weather.temperature } ${obj.current_weather_units.temperature}`;
+    windspeed.innerText = `${obj.current_weather_units.windspeed} ${obj.current_weather_units.windspeed}`
+    winddirection.innerText = `${obj.current_weather.winddirection} ${obj.current_weather_units.winddirection}`
+}
+
 
 
 

@@ -11,9 +11,8 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  transition: background-image 1s ease; 
+  transition: background-image 1s ease;
 }
-
 
 h1 {
   font-size: 2em;
@@ -32,7 +31,8 @@ p {
   padding: 0;
 }
 
-input, button {
+input,
+button {
   font-size: 1em;
 }
 
@@ -46,7 +46,6 @@ input, button {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-
 #location-container {
   margin-top: 2em;
 }
@@ -57,12 +56,27 @@ input, button {
   margin: 0 auto;
 }
 
+/********************/
+/* Arrow */
+/********************/
+
+#arrow-container {
+  position: relative;
+
+  svg {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    top: -5px;
+    transition: all 0.3s ease;
+  }
+}
 
 /********************/
 /* Body Backgrounds */
 /********************/
 
-body{
+body {
   background-image: url('/images/background/default.jpg');
 }
 body.sunny {
@@ -98,4 +112,3 @@ body.showers {
 body.thunderstorm {
   background-image: url('/images/background/9-thunderstorm.jpg');
 }
-

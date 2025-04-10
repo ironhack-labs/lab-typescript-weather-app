@@ -11,9 +11,9 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  transition: background-image 1s ease; 
+  transition: background-image 1s ease;
+  min-height: 100vh;
 }
-
 
 h1 {
   font-size: 2em;
@@ -32,7 +32,8 @@ p {
   padding: 0;
 }
 
-input, button {
+input,
+button {
   font-size: 1em;
 }
 
@@ -46,7 +47,6 @@ input, button {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-
 #location-container {
   margin-top: 2em;
 }
@@ -57,45 +57,43 @@ input, button {
   margin: 0 auto;
 }
 
-
 /********************/
 /* Body Backgrounds */
 /********************/
 
-body{
-  background-image: url('/images/background/default.jpg');
+body {
+  background-image: url("/images/background/default.jpg");
 }
 body.sunny {
-  background-image: url('/images/background/1-sunny.jpg');
+  background-image: url("/images/background/1-sunny.jpg");
 }
 body.sunny-night {
-  background-image: url('/images/background/1-sunny-night.jpg');
+  background-image: url("/images/background/1-sunny-night.jpg");
 }
 body.partly-cloudy {
-  background-image: url('/images/background/2-partly-cloudy.jpg');
+  background-image: url("/images/background/2-partly-cloudy.jpg");
 }
 body.partly-cloudy-night {
-  background-image: url('/images/background/2-partly-cloudy-night.jpg');
+  background-image: url("/images/background/2-partly-cloudy-night.jpg");
 }
 body.cloudy {
-  background-image: url('/images/background/3-cloudy.jpg');
+  background-image: url("/images/background/3-cloudy.jpg");
 }
 body.foggy {
-  background-image: url('/images/background/4-foggy.jpg');
+  background-image: url("/images/background/4-foggy.jpg");
 }
 body.drizzle {
-  background-image: url('/images/background/5-drizzle.jpg');
+  background-image: url("/images/background/5-drizzle.jpg");
 }
 body.rain {
-  background-image: url('/images/background/6-rain.jpg');
+  background-image: url("/images/background/6-rain.jpg");
 }
 body.snow {
-  background-image: url('/images/background/7-snow.jpg');
+  background-image: url("/images/background/7-snow.jpg");
 }
 body.showers {
-  background-image: url('/images/background/8-showers.jpg');
+  background-image: url("/images/background/8-showers.jpg");
 }
 body.thunderstorm {
-  background-image: url('/images/background/9-thunderstorm.jpg');
+  background-image: url("/images/background/9-thunderstorm.jpg");
 }
-

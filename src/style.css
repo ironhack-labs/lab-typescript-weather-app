@@ -11,7 +11,11 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  transition: background-image 1s ease; 
+  transition: background-image 1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 
@@ -32,23 +36,46 @@ p {
   padding: 0;
 }
 
-input, button {
+input,
+button {
   font-size: 1em;
+  height: 3rem;
+  border-radius: 5px;
+  padding: 0 1rem;
+
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+button {
+  border: none;
+  margin-left: .5rem;
+  background-color: cornflowerblue;
+  color: #fff;
+  cursor: pointer;
 }
 
 .card {
-  width: 60%;
+  width: auto;
   height: auto;
-  margin: 2em auto;
-  padding: 0.5em 0 1em;
+  margin: 0 auto;
+  padding: 2em;
   border-radius: 1em;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card h1 {
+  margin-top: 0;
+  line-height: 1;
 }
 
 
 #location-container {
-  margin-top: 2em;
+  margin-top: 1em;
 }
 
 #location-container h2,
@@ -62,40 +89,50 @@ input, button {
 /* Body Backgrounds */
 /********************/
 
-body{
+body {
   background-image: url('/images/background/default.jpg');
 }
+
 body.sunny {
   background-image: url('/images/background/1-sunny.jpg');
 }
+
 body.sunny-night {
   background-image: url('/images/background/1-sunny-night.jpg');
 }
+
 body.partly-cloudy {
   background-image: url('/images/background/2-partly-cloudy.jpg');
 }
+
 body.partly-cloudy-night {
   background-image: url('/images/background/2-partly-cloudy-night.jpg');
 }
+
 body.cloudy {
   background-image: url('/images/background/3-cloudy.jpg');
 }
+
 body.foggy {
   background-image: url('/images/background/4-foggy.jpg');
 }
+
 body.drizzle {
   background-image: url('/images/background/5-drizzle.jpg');
 }
+
 body.rain {
   background-image: url('/images/background/6-rain.jpg');
 }
+
 body.snow {
   background-image: url('/images/background/7-snow.jpg');
 }
+
 body.showers {
   background-image: url('/images/background/8-showers.jpg');
 }
+
 body.thunderstorm {
   background-image: url('/images/background/9-thunderstorm.jpg');
 }
-

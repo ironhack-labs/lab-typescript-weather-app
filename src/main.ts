@@ -1,5 +1,11 @@
 // src/main.ts
-import { getLocation, displayLocation, getCurrentWeather, displayWeatherData } from './utils';
+import {
+  getLocation,
+  displayLocation,
+  getCurrentWeather,
+  displayWeatherData,
+  updateBackground,
+} from './utils';
 
 const formElm = document.getElementById('weather-form') as HTMLFormElement;
 formElm.addEventListener('submit', (e) => {
@@ -19,6 +25,7 @@ formElm.addEventListener('submit', (e) => {
     .then((response) => {
       if (response) {
         displayWeatherData(response);
+        updateBackground(response.current_weather.weathercode, response.current_weather.is_day);
       }
     })
     .catch((err) => {

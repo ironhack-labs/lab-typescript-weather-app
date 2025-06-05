@@ -33,3 +33,42 @@ export function displayWeatherData(obj: WeatherResponse): void {
   const winddirectionElm = document.getElementById('winddirection') as HTMLElement;
   winddirectionElm.innerText = `Wind Direction: ${obj.current_weather.winddirection} ${obj.current_weather_units.winddirection}`;
 }
+
+export function updateBackground(weathercode: number, isDay: number): void {
+  const bodyElm = document.body as HTMLBodyElement;
+  switch (weathercode) {
+    case 0:
+    case 1:
+      isDay === 0 ? (bodyElm.className = 'sunny-night') : (bodyElm.className = 'sunny');
+      break;
+    case 2:
+      isDay === 0
+        ? (bodyElm.className = 'partly-cloudy-night')
+        : (bodyElm.className = 'partly-cloudy');
+      break;
+    case 3:
+      bodyElm.className = 'cloudy';
+      break;
+    case 4:
+      bodyElm.className = 'foggy';
+      break;
+    case 5:
+      bodyElm.className = 'drizzle';
+      break;
+    case 6:
+      bodyElm.className = 'rain';
+      break;
+    case 7:
+      bodyElm.className = 'snow';
+      break;
+    case 8:
+      bodyElm.className = 'showers';
+      break;
+    case 9:
+      bodyElm.className = 'thunderstorm';
+      break;
+    default:
+      bodyElm.className = '';
+      break;
+  }
+}

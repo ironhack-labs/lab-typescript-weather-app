@@ -19,8 +19,17 @@ export function getCurrentWeather(locationDetails: Location): Promise<WeatherRes
 }
 
 export function displayLocation(locationDetails: Location): void {
-  const locationName = document.getElementById('location-name') as HTMLElement;
-  const country = document.getElementById('country') as HTMLElement;
-  locationName.innerText = '' + locationDetails.name;
-  country.innerText = '(' + locationDetails.country + ')';
+  const locationNameElm = document.getElementById('location-name') as HTMLElement;
+  const countryElm = document.getElementById('country') as HTMLElement;
+  locationNameElm.innerText = '' + locationDetails.name;
+  countryElm.innerText = '(' + locationDetails.country + ')';
+}
+
+export function displayWeatherData(obj: WeatherResponse): void {
+  const temperatureElm = document.getElementById('temperature') as HTMLElement;
+  temperatureElm.innerText = `Temperature: ${obj.current_weather.temperature} ${obj.current_weather_units.temperature}`;
+  const windspeedElm = document.getElementById('windspeed') as HTMLElement;
+  windspeedElm.innerText = `Wind Speed: ${obj.current_weather.windspeed} ${obj.current_weather_units.windspeed}`;
+  const winddirectionElm = document.getElementById('winddirection') as HTMLElement;
+  winddirectionElm.innerText = `Wind Direction: ${obj.current_weather.winddirection} ${obj.current_weather_units.winddirection}`;
 }

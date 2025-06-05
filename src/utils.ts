@@ -17,3 +17,10 @@ export function getCurrentWeather(locationDetails: Location): Promise<WeatherRes
       console.log('error while trying to get weather data', err);
     });
 }
+
+export function displayLocation(locationDetails: Location): void {
+  const locationName = document.getElementById('location-name') as HTMLElement;
+  const country = document.getElementById('country') as HTMLElement;
+  locationName.innerText = '' + locationDetails.name;
+  country.innerText = '(' + locationDetails.country + ')';
+}

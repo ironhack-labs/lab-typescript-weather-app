@@ -28,3 +28,30 @@ export type LocationResponse = {
     generationtime_ms: number;
 }
 
+export type WeatherResponse = {
+  latitude: number;
+  longitude: number;
+  generationtime_ms: number;
+  utc_offset_seconds: number;
+  timezone: string;
+  timezone_abbreviation: string;
+  elevation: number;
+  current_weather_units: {
+    time: string; // "iso8601"
+    interval: string; // "seconds"
+    temperature: string; // "°C"
+    windspeed: string; // "km/h"
+    winddirection: string; // "°"
+    is_day: string; // ""
+    weathercode: string; // "wmo code"
+  };
+  current_weather: {
+    time: string; // ISO 8601 datetime string
+    interval: number; // seconds
+    temperature: number; // °C
+    windspeed: number; // km/h
+    winddirection: number; // °
+    is_day: number; // 0 or 1
+    weathercode: number; // WMO code
+  };
+};
